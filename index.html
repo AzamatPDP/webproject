@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="uz" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azamat Jumabayev — Full-Stack Developer</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            500: '#0284c7',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .dark .glass {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 font-sans antialiased selection:bg-sky-500 selection:text-white">
+
+    <!-- NAVBAR -->
+    <header class="fixed top-0 left-0 w-full z-50 px-4 sm:px-8 py-4">
+        <nav class="max-w-6xl mx-auto glass rounded-2xl px-6 py-3 flex items-center justify-between shadow-lg">
+            <a href="#hero" class="text-xl font-bold tracking-tight bg-gradient-to-r from-sky-500 to-indigo-500 bg-clip-text text-transparent">
+                Azamat<span class="text-slate-900 dark:text-white">.dev</span>
+            </a>
+
+            <!-- Desktop Links -->
+            <div class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-600 dark:text-slate-300">
+                <a href="#about" class="hover:text-sky-500 transition-colors">Men haqimda</a>
+                <a href="#skills" class="hover:text-sky-500 transition-colors">Ko'nikmalar</a>
+                <a href="#projects" class="hover:text-sky-500 transition-colors">Loyihalar</a>
+                <a href="#contact" class="hover:text-sky-500 transition-colors">Aloqa</a>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle" class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors" aria-label="Toggle theme">
+                    <i id="theme-icon" data-lucide="sun" class="w-5 h-5 text-amber-500 hidden dark:block"></i>
+                    <i id="theme-icon-dark" data-lucide="moon" class="w-5 h-5 text-slate-700 block dark:hidden"></i>
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button id="menu-btn" class="md:hidden p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden md:hidden max-w-6xl mx-auto mt-2 glass rounded-2xl p-6 shadow-xl flex-col gap-4 text-center font-medium">
+            <a href="#about" class="mobile-link py-2 hover:text-sky-500 transition-colors">Men haqimda</a>
+            <a href="#skills" class="mobile-link py-2 hover:text-sky-500 transition-colors">Ko'nikmalar</a>
+            <a href="#projects" class="mobile-link py-2 hover:text-sky-500 transition-colors">Loyihalar</a>
+            <a href="#contact" class="mobile-link py-2 hover:text-sky-500 transition-colors">Aloqa</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="min-h-screen pt-32 pb-20 px-4 sm:px-8 flex items-center justify-center max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center w-full">
+            <div class="md:col-span-7 flex flex-col items-start gap-6 text-left">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-sky-500/20 bg-sky-500/10 text-sky-600 dark:text-sky-400 text-xs font-semibold tracking-wide">
+                    <span class="w-2 h-2 rounded-full bg-sky-500 animate-pulse"></span>
+                    Loyihalar uchun ochiqman
+                </div>
+                <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight">
+                    Salom, men <br>
+                    <span class="bg-gradient-to-r from-sky-500 via-indigo-500 to-purple-500 bg-clip-text text-transparent">
+                        Azamat Jumabayev
+                    </span>
+                </h1>
+                <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-xl">
+                    Full-Stack Web Dasturchi. Zamonaviy, moslashuvchan va yuqori unumdorlikka ega veb-ilovalar hamda Telegram botlarini yarataman.
+                </p>
+                <div class="flex flex-wrap items-center gap-4 pt-2">
+                    <a href="#contact" class="px-6 py-3.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-semibold transition-all shadow-lg shadow-sky-500/25 flex items-center gap-2">
+                        <i data-lucide="send" class="w-4 h-4"></i> Bog'lanish
+                    </a>
+                    <a href="#" class="px-6 py-3.5 rounded-xl border border-slate-300 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-all font-semibold flex items-center gap-2">
+                        <i data-lucide="file-text" class="w-4 h-4"></i> Rezyume (CV)
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Card / Illustration -->
+            <div class="md:col-span-5 flex justify-center">
+                <div class="relative w-full max-w-md aspect-square rounded-3xl glass p-8 flex flex-col justify-between shadow-2xl border border-white/20 dark:border-white/10 group overflow-hidden">
+                    <div class="absolute -right-10 -top-10 w-40 h-40 bg-sky-500/20 rounded-full blur-3xl group-hover:bg-sky-500/30 transition-all"></div>
+                    <div class="flex items-center justify-between z-10">
+                        <div class="w-12 h-12 rounded-2xl bg-sky-500/10 flex items-center justify-center text-sky-500">
+                            <i data-lucide="code-2" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs font-mono text-slate-400">Python & JavaScript</span>
+                    </div>
+                    <div class="space-y-3 z-10">
+                        <div class="text-xs font-mono text-sky-500 dark:text-sky-400">&lt;developer&gt;</div>
+                        <p class="text-xl font-bold leading-snug">"Sifatli kod va qulay UI/UX — muvaffaqiyatli loyiha kaliti."</p>
+                        <div class="text-xs font-mono text-slate-400">&lt;/developer&gt;</div>
+                    </div>
+                    <div class="pt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 z-10">
+                        <span>Tajriba: 2+ yil</span>
+                        <span>Uzbekistan</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-24 px-4 sm:px-8 border-t border-slate-200/60 dark:border-slate-800/60">
+        <div class="max-w-6xl mx-auto space-y-12">
+            <div class="text-center space-y-3">
+                <h2 class="text-3xl font-bold tracking-tight">Men haqimda</h2>
+                <p class="text-slate-600 dark:text-slate-400 max-w-xl mx-auto text-sm">O'zim haqimda qisqacha ma'lumot va asosiy faoliyatim.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass p-8 rounded-2xl space-y-4 shadow-sm border border-slate-200/50 dark:border-slate-800/50">
+                    <div class="w-10 h-10 rounded-xl bg-sky-500/10 text-sky-500 flex items-center justify-center">
+                        <i data-lucide="terminal" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-xl font-bold">Backend Dasturlash</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Python, Django va FastAPI orqali xavfsiz, tezkor hamda kengayuvchan REST API va ma'lumotlar bazasi tizimlarini yarataman.
+                    </p>
+                </div>
+
+                <div class="glass p-8 rounded-2xl space-y-4 shadow-sm border border-slate-200/50 dark:border-slate-800/50">
+                    <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-500 flex items-center justify-center">
+                        <i data-lucide="layout" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-xl font-bold">Frontend Dasturlash</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        HTML5, CSS3, JavaScript va Tailwind CSS texnologiyalaridan foydalanib, moslashuvchan hamda interaktiv interfeyslar tuzaman.
+                    </p>
+                </div>
+
+                <div class="glass p-8 rounded-2xl space-y-4 shadow-sm border border-slate-200/50 dark:border-slate-800/50">
+                    <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-500 flex items-center justify-center">
+                        <i data-lucide="bot" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-xl font-bold">Bot & CRM Tizimlar</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Aiogram 3.x yordamida murakkab Telegram botlar, biznes jarayonlarini avtomatlashtiruvchi CRM va hisob-kitob platformalari ishlab chiqaman.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="py-24 px-4 sm:px-8 border-t border-slate-200/60 dark:border-slate-800/60 bg-slate-100/50 dark:bg-slate-900/30">
+        <div class="max-w-6xl mx-auto space-y-12">
+            <div class="text-center space-y-3">
+                <h2 class="text-3xl font-bold tracking-tight">Ko'nikmalar</h2>
+                <p class="text-slate-600 dark:text-slate-400 max-w-xl mx-auto text-sm">Loyihalarda samarali qo'llaydigan texnologiyalarim.</p>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <!-- Skill items -->
+                <div class="glass p-4 rounded-xl flex flex-col items-center justify-center gap-2 text-center hover:border-sky-500 transition-colors">
+                    <i data-lucide="code" class="w-6 h-6 text-sky-500"></i>
+                    <span class="font-medium text-sm">Python</span>
+                </div>
+                <div class="glass p-4 rounded-xl flex flex-col items-center justify-center gap-2 text-center hover:border-sky-500 transition-colors">
+                    <i data-lucide="server" class="w-6 h-6 text-emerald-500"></i>
+                    <span class="font-medium text-sm">Django / DRF</span>
+                </div>
+                <div class="glass p-4 rounded-xl flex flex-col items-center justify-center gap-2 text-center hover:border-sky-500 transition-colors">
+                    <i data-lucide="zap" class="w-6 h-6 text-teal-500"></i>
+                    <span class="font-medium text-sm">FastAPI</span>
+                </div>
+                <div class="glass p-4 rounded-xl flex flex-col items-center justify-center gap-2 text-center hover:border-sky-500 transition-colors">
+                    <i data-lucide="file-code" class="w-6 h-6 text-amber-500"></i>
+                    <span class="font-medium text-sm">JavaScript</span>
+                </div>
+                <div class="glass p-4 rounded-xl flex flex-col items-center justify-center gap-2 text-center hover:border-sky-500 transition-colors">
+                    <i data-lucide="palette" class="w-6 h-6 text-sky-400"></i>
+                    <span class="font-medium text-sm">Tailwind CSS</span>
+                </div>
+                <div class="glass p-4 rounded-xl flex flex-col items-center justify-center gap-2 text-center hover:border-sky-500 transition-colors">
+                    <i data-lucide="database" class="w-6 h-6 text-indigo-500"></i>
+                    <span class="font-medium text-sm">PostgreSQL</span>
+                </div>
+                <div class="glass p-4 rounded-xl flex flex-col items-center justify-center gap-2 text-center hover:border-sky-500 transition-colors">
+                    <i data-lucide="git-branch" class="w-6 h-6 text-orange-500"></i>
+                    <span class="font-medium text-sm">Git / GitHub</span>
+                </div>
+                <div class="glass p-4 rounded-xl flex flex-col items-center justify-center gap-2 text-center hover:border-sky-500 transition-colors">
+                    <i data-lucide="container" class="w-6 h-6 text-blue-500"></i>
+                    <span class="font-medium text-sm">Docker</span>
+                </div>
+                <div class="glass p-4 rounded-xl flex flex-col items-center justify-center gap-2 text-center hover:border-sky-500 transition-colors">
+                    <i data-lucide="send" class="w-6 h-6 text-sky-500"></i>
+                    <span class="font-medium text-sm">Aiogram</span>
+                </div>
+                <div class="glass p-4 rounded-xl flex flex-col items-center justify-center gap-2 text-center hover:border-sky-500 transition-colors">
+                    <i data-lucide="layers" class="w-6 h-6 text-violet-500"></i>
+                    <span class="font-medium text-sm">REST API</span>
+                </div>
+                <div class="glass p-4 rounded-xl flex flex-col items-center justify-center gap-2 text-center hover:border-sky-500 transition-colors">
+                    <i data-lucide="html" class="w-6 h-6 text-red-500"></i>
+                    <span class="font-medium text-sm">HTML5 / CSS3</span>
+                </div>
+                <div class="glass p-4 rounded-xl flex flex-col items-center justify-center gap-2 text-center hover:border-sky-500 transition-colors">
+                    <i data-lucide="cpu" class="w-6 h-6 text-cyan-500"></i>
+                    <span class="font-medium text-sm">C++</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="py-24 px-4 sm:px-8 border-t border-slate-200/60 dark:border-slate-800/60">
+        <div class="max-w-6xl mx-auto space-y-12">
+            <div class="text-center space-y-3">
+                <h2 class="text-3xl font-bold tracking-tight">Loyihalar</h2>
+                <p class="text-slate-600 dark:text-slate-400 max-w-xl mx-auto text-sm">Oxirgi yaratilgan tanlangan ishlarim.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Project 1 -->
+                <div class="glass rounded-2xl p-6 flex flex-col justify-between space-y-6 hover:shadow-xl transition-all border border-slate-200/50 dark:border-slate-800/50">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-sky-500/10 text-sky-500 font-semibold">Web Platform</span>
+                            <i data-lucide="folder-git-2" class="w-5 h-5 text-slate-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">OsonTravel</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                            Sayohat va turizm xizmatlari uchun yaratilgan interaktiv, moslashuvchan va zamonaviy web platforma.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="text-xs px-2 py-1 rounded bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">HTML</span>
+                            <span class="text-xs px-2 py-1 rounded bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Tailwind CSS</span>
+                            <span class="text-xs px-2 py-1 rounded bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">JavaScript</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-slate-200 dark:border-slate-800">
+                        <a href="https://github.com/AzamatPDP" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-sky-500">
+                            <i data-lucide="github" class="w-4 h-4"></i> GitHub
+                        </a>
+                        <a href="#" class="inline-flex items-center gap-1.5 text-xs font-semibold text-sky-500 hover:underline">
+                            <i data-lucide="external-link" class="w-4 h-4"></i> Demo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="glass rounded-2xl p-6 flex flex-col justify-between space-y-6 hover:shadow-xl transition-all border border-slate-200/50 dark:border-slate-800/50">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-indigo-500/10 text-indigo-500 font-semibold">Bot / CRM</span>
+                            <i data-lucide="folder-git-2" class="w-5 h-5 text-slate-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">MarkazCRM</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                            O'quv markazlari va kurslar jarayonini avtomatlashtiruvchi Telegram-bot va boshqaruv CRM tizimi.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="text-xs px-2 py-1 rounded bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Django 5</span>
+                            <span class="text-xs px-2 py-1 rounded bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Aiogram 3</span>
+                            <span class="text-xs px-2 py-1 rounded bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">PostgreSQL</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-slate-200 dark:border-slate-800">
+                        <a href="https://github.com/AzamatPDP" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-sky-500">
+                            <i data-lucide="github" class="w-4 h-4"></i> GitHub
+                        </a>
+                        <a href="#" class="inline-flex items-center gap-1.5 text-xs font-semibold text-sky-500 hover:underline">
+                            <i data-lucide="external-link" class="w-4 h-4"></i> Demo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="glass rounded-2xl p-6 flex flex-col justify-between space-y-6 hover:shadow-xl transition-all border border-slate-200/50 dark:border-slate-800/50">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-500 font-semibold">Web App</span>
+                            <i data-lucide="folder-git-2" class="w-5 h-5 text-slate-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">BiznesHisob</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                            Kichik va o'rta bizneslar uchun moliyaviy hisob-kitob hamda analitika yurituvchi veb-tizim.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="text-xs px-2 py-1 rounded bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Python</span>
+                            <span class="text-xs px-2 py-1 rounded bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Django</span>
+                            <span class="text-xs px-2 py-1 rounded bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Tailwind</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-slate-200 dark:border-slate-800">
+                        <a href="https://github.com/AzamatPDP/BiznesHisob" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-sky-500">
+                            <i data-lucide="github" class="w-4 h-4"></i> GitHub
+                        </a>
+                        <a href="#" class="inline-flex items-center gap-1.5 text-xs font-semibold text-sky-500 hover:underline">
+                            <i data-lucide="external-link" class="w-4 h-4"></i> Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-24 px-4 sm:px-8 border-t border-slate-200/60 dark:border-slate-800/60 bg-slate-100/50 dark:bg-slate-900/30">
+        <div class="max-w-6xl mx-auto space-y-12">
+            <div class="text-center space-y-3">
+                <h2 class="text-3xl font-bold tracking-tight">Aloqaga chiqish</h2>
+                <p class="text-slate-600 dark:text-slate-400 max-w-xl mx-auto text-sm">Savollaringiz bormi yoki birga ishlashni xohlaysizmi? Xabar qoldiring!</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+                <!-- Form -->
+                <div class="md:col-span-7 glass p-8 rounded-2xl border border-slate-200/50 dark:border-slate-800/50">
+                    <form onsubmit="event.preventDefault(); alert('Xabaringiz yuborildi!');" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-medium mb-1 text-slate-600 dark:text-slate-400">Ismingiz</label>
+                            <input type="text" required placeholder="Ismingizni kiriting" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 focus:outline-none focus:ring-2 focus:ring-sky-500 text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium mb-1 text-slate-600 dark:text-slate-400">Email manzilingiz</label>
+                            <input type="email" required placeholder="example@domain.com" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 focus:outline-none focus:ring-2 focus:ring-sky-500 text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium mb-1 text-slate-600 dark:text-slate-400">Xabar</label>
+                            <textarea rows="4" required placeholder="Xabaringizni yozing..." class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 focus:outline-none focus:ring-2 focus:ring-sky-500 text-sm"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-3.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-semibold transition-colors text-sm shadow-md">
+                            Xabarni Yuborish
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Social & Info -->
+                <div class="md:col-span-5 flex flex-col justify-between space-y-6">
+                    <div class="glass p-8 rounded-2xl border border-slate-200/50 dark:border-slate-800/50 space-y-6">
+                        <h3 class="text-xl font-bold">Ijtimoiy tarmoqlar</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm">Quyidagi tarmoqlar orqali ham bog'lanishingiz mumkin:</p>
+                        
+                        <div class="space-y-3">
+                            <a href="https://github.com/AzamatPDP" target="_blank" class="flex items-center gap-3 p-3 rounded-xl border border-slate-200/60 dark:border-slate-800 hover:border-sky-500 transition-colors text-sm font-medium">
+                                <i data-lucide="github" class="w-5 h-5 text-sky-500"></i> GitHub (@AzamatPDP)
+                            </a>
+                            <a href="https://t.me/dev_azamat" target="_blank" class="flex items-center gap-3 p-3 rounded-xl border border-slate-200/60 dark:border-slate-800 hover:border-sky-500 transition-colors text-sm font-medium">
+                                <i data-lucide="send" class="w-5 h-5 text-sky-500"></i> Telegram
+                            </a>
+                            <a href="https://instagram.com/dev.azam" target="_blank" class="flex items-center gap-3 p-3 rounded-xl border border-slate-200/60 dark:border-slate-800 hover:border-sky-500 transition-colors text-sm font-medium">
+                                <i data-lucide="instagram" class="w-5 h-5 text-sky-500"></i> Instagram (@dev.azam)
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-8 text-center text-xs text-slate-500 border-t border-slate-200/60 dark:border-slate-800/60">
+        <p>© 2026 Azamat Jumabayev. Barcha huquqlar himoyalangan.</p>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Lucide Icons Render
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+            });
+        });
+
+        // Dark / Light Mode Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        // Init theme from localStorage
+        if (localStorage.getItem('theme') === 'light') {
+            html.classList.remove('dark');
+        } else {
+            html.classList.add('dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    </script>
+</body>
+</html>
